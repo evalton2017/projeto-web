@@ -4,10 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "node server",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ngcc",
+    "logs": "heroku logs --app=dev-seg-web -t",
+    "env": "heroku config --app=dev-seg-web"
   },
   "private": true,
   "dependencies": {
