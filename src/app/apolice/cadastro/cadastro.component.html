@@ -1,0 +1,43 @@
+<ngx-loading [show]="loading"></ngx-loading>
+<div class="container">
+    <h1>{{titulo}}</h1>
+
+    <form [formGroup]="apoliceForm">
+        <ng-template>Dados Apolice</ng-template>
+
+        <mat-form-field class="mat-full-form">
+            <mat-label>Data Inicio</mat-label>
+            <input matInput type="date" formControlName="inicioVigencia" required>
+        </mat-form-field>
+
+        <mat-form-field class="mat-full-form">
+            <mat-label>Data Fim</mat-label>
+            <input matInput type="date" formControlName="fimVigencia" required (blur)="validarData()">
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="mat-full-form">
+            <mat-label>Placa</mat-label>
+            <input matInput formControlName="placa" placeholder="valor" maxlength="8">
+        </mat-form-field>
+
+        <mat-form-field class="mat-full-form">
+            <mat-label>Valor</mat-label>
+            <input currencyMask matInput type="valor" formControlName="valor"
+                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+        </mat-form-field>
+        <br>
+
+        <div>
+            <button *ngIf="acao=='cadastrar'" mat-raised-button color="primary" [disabled]="apoliceForm.invalid" (click)="salvar()" style="margin-right: 2%;">
+                Cadastrar
+            </button>
+            <button *ngIf="acao=='editar'"  mat-raised-button color="primary" [disabled]="apoliceForm.invalid" (click)="alterar()" style="margin-right: 2%;">
+                alterar
+            </button>
+            <button mat-raised-button color="warn" mat-button (click)="onNoClick()">Voltar</button>
+        </div>
+    </form>
+
+</div>

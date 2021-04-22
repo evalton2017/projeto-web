@@ -1,0 +1,38 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+  .mat-full-form {
+    width: 100%;
+  }
+  
+  .mat-cid-form{
+    width: 50%;
+  }
+
+  .green-icon {
+    color: white;
+    background-color: rgb(9, 107, 9);
+    margin-right: 3px;
+  }
+
+  .yellow-icon {
+    color: white;
+    background-color: #4682B4;
+  }
+
+  .blue-icon {
+    color: white;
+    background-color: rgb(134, 134, 180);
+    margin-right: 3px;
+  }
+
+  .red-icon {
+    color: white;
+    background-color: red;
+    margin-right: 1px;
+  }

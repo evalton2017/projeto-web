@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h2>Consulta de Apolice</h2>
+
+
+    <div class="example-form">
+        <mat-form-field class="mat-full-form">
+            <mat-label>Pesquise a apolice pelo numero</mat-label>
+            <input type="text" matInput fullWidth placeholder="Digite sua pesquisa" [(ngModel)]="pesquisa">
+        </mat-form-field>
+
+        <div class="example-form">
+            <button mat-button style="background-color:rgb(98, 98, 236);color: white;"
+                (click)="consultarApolice()">Consultar</button>
+        </div>
+ 
+        <mat-list role="list" *ngIf="consulta.numero!=null">
+            <mat-list-item role="listitem"> Numero da Apolice - <b> {{consulta.numero}}</b></mat-list-item>
+            <mat-list-item role="listitem" *ngIf="consulta.vencido==true" style="color: red;">Vencida - <b> SIM</b></mat-list-item>
+            <mat-list-item role="listitem" *ngIf="consulta.vencido==false" >Vencida - <b> NÃO</b></mat-list-item>
+            <mat-list-item role="listitem" *ngIf="consulta.vencido==true" style="color: red;" >Informações do vencimento - <b>  {{consulta.infoVencimento}}</b></mat-list-item>
+            <mat-list-item role="listitem" *ngIf="consulta.vencido==false" >Informações do vencimento - <b>  {{consulta.infoVencimento}}</b></mat-list-item>
+            <mat-list-item role="listitem">Placa - <b> {{consulta.placa}} </b></mat-list-item>
+            <mat-list-item role="listitem">Valor Apolice - <b> {{consulta.valor}} </b></mat-list-item>
+          </mat-list>
+
+</div>

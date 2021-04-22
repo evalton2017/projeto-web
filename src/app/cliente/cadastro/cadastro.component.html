@@ -1,0 +1,41 @@
+<ngx-loading [show]="loading" ></ngx-loading>
+<div class="container"> 
+    <h2>{{titulo}}</h2>
+    <form [formGroup]="form" fxLayoutAlign="center" novalidate>
+        <mat-list>
+            <mat-form-field class="mat-full-form">
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="nome" placeholder="Nome do usuario" minlength="8" required>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form">
+                <mat-label>CPF</mat-label>
+                    <input matInput placeholder="CPF" formControlName="cpf" mascara="999.999.999-99">
+            </mat-form-field>
+
+            <mat-error *ngIf="verificaValidTouched('cpf')">CPF inválido.</mat-error>
+
+            <mat-form-field class="mat-cid-form">
+                <mat-label>Cidade</mat-label>
+                    <input matInput placeholder="Cidade" formControlName="cidade">
+            </mat-form-field>
+
+            <mat-form-field class="mat-form">
+                <mat-label>UF</mat-label>
+                    <input matInput placeholder="UF" formControlName="uf" maxlength="2">
+            </mat-form-field>
+
+            <mat-list-item fxLayoutAlign="center">
+                <button *ngIf="acao=='cadastrar'" mat-raised-button color="primary" [disabled]="form.invalid" (click)="salvar()">
+                    Cadastrar
+                </button>
+                <button *ngIf="acao=='editar'"  mat-raised-button color="primary" [disabled]="form.invalid" (click)="alterar()">
+                    alterar
+                </button>
+                &nbsp;
+                <a mat-raised-button (click)="onNoClick()">Voltar</a>
+            </mat-list-item >
+        </mat-list>
+    </form>
+</div>
+
