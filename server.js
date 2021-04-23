@@ -6,8 +6,8 @@ const PORT = process.env.PORT || 4200;
 
 app.use(express.static(__dirname+'/dist/seguradora-web'));
 
-app.get('/*', (req,res)=>{
-    res.sendFile(__dirname+'dist/seguradora-web/index.html')
+app.get('*', (req,res)=>{
+    res.sendFile(__dirname+'/dist/seguradora-web/index.html')
 });
 
 app.listen(PORT, () => {
