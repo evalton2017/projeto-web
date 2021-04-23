@@ -4,13 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "build": "ng build --prod",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ngcc",
-    "logs": "heroku logs --app=dev-seg-web -t",
-    "env": "heroku config --app=dev-seg-web"
+    "heroku-postbuild": "ng build --prod",
+    "logs": "heroku logs --app=dev-seg-web -t"
   },
   "private": true,
   "dependencies": {
@@ -26,14 +25,20 @@
     "@angular/router": "~9.1.1",
     "bootstrap": "^4.6.0",
     "date-fns": "^2.21.1",
+    "express": "^4.17.1",
     "jquery": "^3.6.0",
     "moment": "^2.29.1",
     "ng2-currency-mask": "^11.0.0",
     "ngx-loading": "^8.0.0",
     "ngx-mask": "^11.1.5",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.9.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
