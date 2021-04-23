@@ -5,8 +5,8 @@ import { ConsultaComponent } from './consulta/consulta.component';
 
 
 const routes: Routes = [
-    {path:'apolices', component: ApoliceComponent},
-    {path:'apolice/consulta', component: ConsultaComponent}
+  { path: 'apolices', component: ApoliceComponent },
+  { path: 'apolice/consulta', component: ConsultaComponent }
 ];
 
 @NgModule({

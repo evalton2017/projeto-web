@@ -20,33 +20,33 @@ export class ConsultaComponent implements OnInit {
   pesquisa: any = '';
 
   public loading = false;
-  dataSource= new MatTableDataSource();
-  colunas: string[] = ['id', 'numero', 'inicio','fim','placa','valor', 'opcoes'];
+  dataSource = new MatTableDataSource();
+  colunas: string[] = ['id', 'numero', 'inicio', 'fim', 'placa', 'valor', 'opcoes'];
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(
-  	private snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private router: Router,
     private ApoliceService: ApoliceService
   ) {
     this.consulta = new ConsultaApolice();
-   }
+  }
 
   ngOnInit() {
     this.dataSource.data = []
   }
 
-  consultarApolice(){
+  consultarApolice() {
     this.loading = true
     this.ApoliceService.consultaApolice(this.pesquisa)
       .subscribe(
-        response =>{
+        response => {
           this.loading = false;
           this.consulta = response;
         },
-        err =>{
+        err => {
           this.loading = false;
           this.snackBar.open(err.error.message, "Erro", { duration: 5000 });
         }

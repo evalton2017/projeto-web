@@ -43,8 +43,8 @@ export class CadastroComponent implements OnInit {
   gerarForm() {
   	this.form = this.fb.group({
       id: ['', []],
-  		nome: ['', [Validators.required, Validators.minLength(3)]],
-  		cpf: ['', [Validators.required, CpfValidator]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      cpf: ['', [Validators.required, CpfValidator]],
   		cidade: ['', [Validators.required, Validators.minLength(3)]],
   		uf: ['', [Validators.required, Validators.maxLength(2)]],
   	});

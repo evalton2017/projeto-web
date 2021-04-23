@@ -11,22 +11,22 @@ import { NgxLoadingModule } from 'ngx-loading';
 
 import { RouterModule } from '@angular/router';
 
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatTableModule} from '@angular/material/table';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
- 
+
 @NgModule({
   declarations: [ClienteComponent, CadastroComponent],
   imports: [
@@ -52,7 +52,7 @@ const maskConfig: Partial<IConfig> = {
     NgxLoadingModule,
     NgxMaskModule.forRoot(maskConfig),
     HttpClientModule
-   
+
   ]
 })
 export class ClientesModule { }

@@ -23,8 +23,8 @@ export class ApoliceService {
     return this.http.get<any>(this.API + `apolices`);
   }
 
-  cadastrarApolice(apolice:Apolice): Observable<Apolice>{
-    return this.http.post<Apolice>(this.API+`apolices`, apolice, this.httpOptions)
+  cadastrarApolice(apolice: Apolice): Observable<Apolice> {
+    return this.http.post<Apolice>(this.API + `apolices`, apolice, this.httpOptions)
   }
 
   buscaApolicePorId(codigo: any): Observable<Apolice> {
@@ -32,11 +32,11 @@ export class ApoliceService {
   }
 
   atualizarApolice(codigo: any, apolice: Apolice): Observable<any> {
-    return this.http.put<any>(this.API+ `apolices/${codigo}`, apolice)
+    return this.http.put<any>(this.API + `apolices/${codigo}`, apolice)
   }
 
   deletaApolice(codigo: any): Observable<any> {
-    return this.http.delete<any>(this.API+ `apolices/${codigo}`)
+    return this.http.delete<any>(this.API + `apolices/${codigo}`)
   }
 
   consultaApolice(numero: any): Observable<ConsultaApolice> {

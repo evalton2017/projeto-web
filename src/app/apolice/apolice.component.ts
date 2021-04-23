@@ -22,36 +22,36 @@ export class ApoliceComponent implements OnInit {
   pesquisa: any = '';
 
   public loading = false;
-  dataSource= new MatTableDataSource();
-  colunas: string[] = ['id', 'numero', 'inicio','fim','placa','valor', 'opcoes'];
+  dataSource = new MatTableDataSource();
+  colunas: string[] = ['id', 'numero', 'inicio', 'fim', 'placa', 'valor', 'opcoes'];
 
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(
-  	private fb: FormBuilder, 
-  	private snackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
     private router: Router,
     private ApoliceService: ApoliceService,
     public dialog: MatDialog
   ) { }
 
   ngOnInit() {
-  	this.listarApolice();
+    this.listarApolice();
   }
 
-  listarApolice(){
+  listarApolice() {
     this.loading = true
     this.ApoliceService.listarApolice()
       .subscribe(
-        response =>{
+        response => {
           this.loading = false;
           this.apolices = response;
           this.dataSource.data = response;
           this.dataSource.sort = this.sort;
-          this.dataSource.paginator = this.paginator; 
+          this.dataSource.paginator = this.paginator;
         },
-        err =>{
+        err => {
           this.loading = false;
           const msg: string = "Erro ao carregar as Apolices.";
           this.snackBar.open(msg, "Erro", { duration: 5000 });
@@ -60,7 +60,7 @@ export class ApoliceComponent implements OnInit {
   }
 
   cadastrar(): void {
-    let dados = {titulo: 'Cadastrar Apolice', acao:'cadastrar'}
+    let dados = { titulo: 'Cadastrar Apolice', acao: 'cadastrar' }
     const dialogRef = this.dialog.open(CadastroComponent, {
       width: '40%',
       data: dados
@@ -73,7 +73,7 @@ export class ApoliceComponent implements OnInit {
   }
 
   alterar(apolice: any): void {
-    let dados = {titulo: 'Alterar Apolice', acao:'editar', apolice: apolice}
+    let dados = { titulo: 'Alterar Apolice', acao: 'editar', apolice: apolice }
     const dialogRef = this.dialog.open(CadastroComponent, {
       width: '40%',
       data: dados
@@ -88,22 +88,22 @@ export class ApoliceComponent implements OnInit {
   excluir(codigo: any): void {
     this.loading = true;
     this.ApoliceService.deletaApolice(codigo)
-    .subscribe(
-      response =>{
-        this.loading = false;
-        this.snackBar.open("Apolice deletado com sucesso.", "Sucesso", { duration: 5000 });
-        this.ngOnInit();
-      },
-      err =>{
-        this.loading = false;
-        this.snackBar.open(err.error.message, "Erro", { duration: 5000 });
-      }
-    )
+      .subscribe(
+        response => {
+          this.loading = false;
+          this.snackBar.open("Apolice deletado com sucesso.", "Sucesso", { duration: 5000 });
+          this.ngOnInit();
+        },
+        err => {
+          this.loading = false;
+          this.snackBar.open(err.error.message, "Erro", { duration: 5000 });
+        }
+      )
   }
 
-  
-  pesquisar(){
-    let dados  = this.apolices.filter(optionValue => optionValue.numero.toString().includes(this.pesquisa.toString()));
+
+  pesquisar() {
+    let dados = this.apolices.filter(optionValue => optionValue.numero.toString().includes(this.pesquisa.toString()));
     this.dataSource.data = dados;
   }
 
