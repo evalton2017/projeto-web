@@ -31,13 +31,11 @@ const maskConfig: Partial<IConfig> = {
   declarations: [ClienteComponent, CadastroComponent],
   imports: [
     CommonModule,
-    ClientesRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    BrowserModule,
+ //   BrowserModule,
     FormsModule,
 
-    CommonModule,
     RouterModule,
     MatInputModule,
     MatButtonModule,
@@ -51,7 +49,8 @@ const maskConfig: Partial<IConfig> = {
 
     NgxLoadingModule,
     NgxMaskModule.forRoot(maskConfig),
-    HttpClientModule
+    HttpClientModule,
+    ClientesRoutingModule
 
   ]
 })

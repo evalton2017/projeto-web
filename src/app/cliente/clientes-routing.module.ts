@@ -3,9 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClienteComponent } from './cliente.component';
 
 
-
 const routes: Routes = [
-  {path:'clientes', component: ClienteComponent}
+  {path:'', component: ClienteComponent}
  
 ];
 
@@ -14,3 +13,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ClientesRoutingModule { }
+

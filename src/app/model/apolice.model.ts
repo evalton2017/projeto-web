@@ -1,3 +1,5 @@
+import { Cliente } from "./cliente.model";
+
 export class Apolice {
     public id: number;
     public numero: number;
@@ -5,4 +7,6 @@ export class Apolice {
     public fimVigencia: Date;
     public placa: string;
     public valor: number;
+    public cliente: Cliente
+    
 }

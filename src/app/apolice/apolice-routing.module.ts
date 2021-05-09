@@ -5,8 +5,9 @@ import { ConsultaComponent } from './consulta/consulta.component';
 
 
 const routes: Routes = [
-  { path: 'apolices', component: ApoliceComponent },
-  { path: 'apolice/consulta', component: ConsultaComponent }
+  { path: '', component: ApoliceComponent, children:[
+    {path: 'consulta', component: ConsultaComponent }
+  ]}
 ];
 
 @NgModule({
@@ -14,3 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ApoliceRoutingModule { }
+

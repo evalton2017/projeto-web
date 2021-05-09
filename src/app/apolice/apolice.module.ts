@@ -27,6 +27,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import localePt from '@angular/common/locales/pt';
+import {MatAutocompleteModule} from  '@angular/material/autocomplete';
 
 registerLocaleData(localePt);
 
@@ -40,10 +41,9 @@ const maskConfig: Partial<IConfig> = {
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    BrowserModule,
+   // BrowserModule,
     FormsModule,
-
-    CommonModule,
+    
     RouterModule,
     MatInputModule,
     MatButtonModule,
@@ -56,6 +56,7 @@ const maskConfig: Partial<IConfig> = {
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatAutocompleteModule,
 
     NgxLoadingModule,
     NgxMaskModule.forRoot(maskConfig),
